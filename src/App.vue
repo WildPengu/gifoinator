@@ -1,26 +1,37 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="app-container">
+    <Search />
+    <Gifs />
+    <FavoriteGifs />
+  </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script lang="ts">
+import { Options, Vue } from "vue-class-component";
+import Search from "./components/Search.vue";
+import Gifs from "./components/Gifs.vue";
+import FavoriteGifs from "./components/FavoriteGifs.vue";
 
-export default {
-  name: 'App',
+@Options({
   components: {
-    HelloWorld
-  }
-}
+    Search,
+    Gifs,
+    FavoriteGifs,
+  },
+})
+export default class App extends Vue {}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(18, 18, 18);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>
